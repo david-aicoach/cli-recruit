@@ -1,0 +1,67 @@
+{
+  "manifest_schema": "1.0",
+  "arc_version": "0.4.0",
+  "exported_at": "2026-09-04T15:12:00Z",
+  "target": {
+    "business_name": "ARC Clean-Room Test Organisation",
+    "owner": "david-aicoach",
+    "owner_type": "user",
+    "default_visibility": "public"
+  },
+  "repositories": [
+    {
+      "name": "cli-recruit",
+      "description": "Clean-room operations and durable-work owner.",
+      "role": "operations",
+      "required": true,
+      "visibility": "public",
+      "observed_action": "REUSE"
+    },
+    {
+      "name": "trx-poly",
+      "description": "Clean-room reusable Skills owner.",
+      "role": "skills",
+      "required": true,
+      "visibility": "private",
+      "observed_action": "REUSE"
+    }
+  ],
+  "integrations": {
+    "private_files": "not-declared",
+    "specialist_systems": ["Gmail"],
+    "memory": "optional"
+  },
+  "observation": {
+    "repository_state_observed": true,
+    "meaning": "Both minimum proof repositories were observed before export."
+  },
+  "compatibility": {
+    "manifest_schema": "1.0",
+    "exported_by_arc": "0.4.0",
+    "minimum_reader": "0.3.0"
+  },
+  "recovery": {
+    "repository_reconstruction": "Recreate the declared repository roles, then restore ARC-owned operating contracts from public ARC plus target-specific North Star/owner references.",
+    "excluded_material": [
+      "credential values",
+      "private-file contents",
+      "mailbox records",
+      "database contents",
+      "trusted-runtime machine state",
+      "derived memory contents"
+    ],
+    "manual_prerequisites": [
+      "reprovision required credentials through the approved external credential/identity owner",
+      "reconnect Gmail through the declared connector/identity reference in RECONNECTIONS.md",
+      "restore target-specific North Star wording from its canonical owner",
+      "run real-state verification after repository and external-owner restoration"
+    ]
+  },
+  "proof_contracts": {
+    "north_star": "https://github.com/david-aicoach/cli-recruit/blob/main/NORTH-STAR.md",
+    "operations_agent_contract_upstream": "https://github.com/tbhrc/arc/blob/main/AGENTS.md",
+    "skills_owner": "https://github.com/david-aicoach/trx-poly",
+    "reconnections": "https://github.com/david-aicoach/cli-recruit/blob/main/RECONNECTIONS.md",
+    "durable_work": "https://github.com/david-aicoach/cli-recruit/issues/1"
+  }
+}
